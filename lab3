@@ -1,0 +1,42 @@
+------------1-----------------
+#include <iostream>
+using namespace std;
+
+long int hms_to_secs (int hours, int minutes, int second)
+{
+    int time = second + minutes * 60 + hours * 3600;
+    return time;
+}
+
+int main()
+{
+    int hr, minu, sec;
+    char user_choice;
+
+
+    cout<< "Enter time in the format (hour minute second): ";
+    cin>> hr >> minu >> sec;
+
+    cout << "Time in Seconds = " << hms_to_secs(hr, minu, sec) <<endl;
+
+    cout<< "Do you want to check for other time (y/n): ";
+    cin>> user_choice;
+
+    cout<< endl;
+
+    while(user_choice == 'y' || user_choice == 'Y')
+    {
+        cout<< "Enter time in the format (hour: minute: second): ";
+        cin>> hr >> minu >> sec;
+
+        cout << "Time in Seconds = " << hms_to_secs(hr, minu, sec)<< endl;
+
+        cout<< "Do you want to check for other time (y/n): ";
+        cin>> user_choice;
+
+        cout<< endl;
+    }
+
+    return 0;
+}
+-------------------------2--------------------------------
