@@ -39,4 +39,68 @@ int main()
 
     return 0;
 }
--------------------------2--------------------------------
+-------------------------3-------------------------------
+#include <iostream>
+
+using namespace std;
+
+int x, y;
+int &grea(int &x, int &y)
+{
+    if (x < y)
+        return x;
+    else
+        return y;
+}
+
+int main()
+{
+    int s = 0;
+    cout << " enter two numbers:";
+    cin >> x >> y;
+    grea(x, y) = s;
+    if (x == 0)
+        cout << "smaller value=" << x << "\n"
+             << "greater value=" << y;
+    else
+        cout << "smaller value=" << y << "\n"
+             << "greater value=" << x;
+}
+-----------5--------------------------------------------------
+#include <iostream>
+using namespace std;
+
+struct dist
+{
+    int feet, inches;
+};
+
+void scale(dist &dt);
+void display(dist d);
+
+int main()
+{
+    dist d;
+
+    cout << "enter feet and inch";
+    cin >> d.feet >> d.inches;
+    scale(d);
+}
+
+void scale(dist &dt)
+{
+    int f;
+    if (dt.inches >= 12)
+    {
+        dt.feet = dt.inches / 12 + dt.feet;
+        dt.inches = dt.inches % 12;
+    }
+
+    display(dt);
+}
+
+void display(dist d)
+{
+    cout << d.feet << "\'" << endl
+         << d.inches << "\"";
+}
